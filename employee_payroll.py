@@ -2,7 +2,7 @@
 import random
 
 
-def employee():
+class Employee:
     MIN_WORKING_DAYS = 20
     MIN_WORKING_HOUR = 100
     WAGE_PER_HOUR = 20
@@ -10,7 +10,7 @@ def employee():
     PART_TIME_WORKING_HOURS = 8
     total_wage = total_hours = total_days = 0
 
-    while total_hours <= 100 and total_days <= 20:
+    while total_hours <= MIN_WORKING_HOUR and total_days <= MIN_WORKING_DAYS:
         random_number = random.randint(0, 2)
         if random_number == 0:
             total_hours += FULL_WORKING_HOUR
@@ -27,9 +27,8 @@ def employee():
         else:
             print("Invalid")
 
-    return total_wage, total_days, total_hours
-
 
 if __name__ == "__main__":
     print("Welcome to employee payroll program")
-    print("Monthly wage and details of the employee is", employee())
+    result = Employee()
+    print("Monthly wage and details of the employee is", result.total_wage)
