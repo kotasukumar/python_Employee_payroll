@@ -4,16 +4,19 @@ import random
 
 def employee(random_number):
     WAGE_PER_HOUR = 20
-    WORKING_HOUR = 8
+    FULL_WORKING_HOUR = 8
+    PART_TIME_WORKING_HOURS = 4
     if random_number == 0:
-        print("Employee is absent and his wage is: ", WORKING_HOUR * WAGE_PER_HOUR)
+        print("Full time Employee is absent and his wage is: ", FULL_WORKING_HOUR * WAGE_PER_HOUR)
     elif random_number == 1:
-        print("Employee is present and his wage is zero")
+        print("Part time Employee is present and his wage is: ", PART_TIME_WORKING_HOURS * WAGE_PER_HOUR)
+    elif random_number == 2:
+        print("Employee is absent wage is zero")
     else:
         print("Invalid")
 
 
 if __name__ == "__main__":
     print("Welcome to employee payroll program")
-    number = random.randint(0, 1)
+    number = random.randint(0, 2)
     employee(number)
