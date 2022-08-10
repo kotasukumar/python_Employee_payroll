@@ -16,24 +16,25 @@ class Employee:
         FULL_WORKING_HOUR = 8
         PART_TIME_WORKING_HOURS = 8
         total_wage = total_hours = total_days = 0
+        daily_wage = []
         while total_hours <= self.MIN_WORKING_HOUR and total_days <= self.MIN_WORKING_DAYS:
             random_number = random.randint(0, 2)
             if random_number == 0:
                 total_hours += FULL_WORKING_HOUR
                 total_days += 1
                 total_wage += FULL_WORKING_HOUR * self.WAGE_PER_HOUR
-                print("Full time Employee is present and his wage is: ", FULL_WORKING_HOUR * self.WAGE_PER_HOUR)
+                daily_wage.append(FULL_WORKING_HOUR * self.WAGE_PER_HOUR)
             elif random_number == 1:
                 total_hours += PART_TIME_WORKING_HOURS
                 total_days += 1
                 total_wage += PART_TIME_WORKING_HOURS * self.WAGE_PER_HOUR
-                print("Part time Employee is present and his wage is: ", PART_TIME_WORKING_HOURS * self.WAGE_PER_HOUR)
+                daily_wage.append(FULL_WORKING_HOUR * self.WAGE_PER_HOUR)
             elif random_number == 2:
-                print("Employee is absent wage is zero")
+                daily_wage.append(0)
             else:
                 print("Invalid")
 
-        details = [self.company_name, total_wage, total_hours, total_days]
+        details = [self.company_name, total_wage, total_hours, total_days, daily_wage]
         return details
 
 
