@@ -33,20 +33,23 @@ class Employee:
             else:
                 print("Invalid")
 
-        return total_wage, total_hours, total_days
+        details = [self.company_name, total_wage, total_hours, total_days]
+        return details
 
 
 if __name__ == "__main__":
     print("Welcome to employee payroll program")
+    company_list = []
     while True:
-        user_input = int(input("Choice a number\n 0: Enter the details\n1: To exit\n"))
+        user_input = int(input("Choice a number\n 0: Enter the details\n 1: To exit\n"))
         if user_input == 0:
             name = str(input("Enter name of the company: "))
             minimum_working_hours = int(input("Enter minimum working hours of your company: "))
             minimum_working_days = int(input("Enter minimum working days of your company: "))
             per_day_wage = int(input("Enter per day wage of your company: "))
             result = Employee(name, minimum_working_hours, minimum_working_days, per_day_wage)
-            print("Monthly wage and details of the employee is", result.company_name, result.returned_value)
+            company_list.append(result.returned_value)
+            print("Monthly wage and details of the employee is", company_list)
         else:
             sys.exit()
 
