@@ -1,5 +1,6 @@
 # Employee payroll program
 import random
+import sys
 
 
 class Employee:
@@ -37,7 +38,15 @@ class Employee:
 
 if __name__ == "__main__":
     print("Welcome to employee payroll program")
-    result = Employee("Amazon", 100, 20, 20)
-    print("Monthly wage and details of the employee is", result.company_name, result.returned_value)
-    result = Employee("flipKart", 200, 20, 30)
-    print("Monthly wage and details of the employee is", result.company_name, result.returned_value)
+    while True:
+        user_input = int(input("Choice a number\n 0: Enter the details\n1: To exit\n"))
+        if user_input == 0:
+            name = str(input("Enter name of the company: "))
+            minimum_working_hours = int(input("Enter minimum working hours of your company: "))
+            minimum_working_days = int(input("Enter minimum working days of your company: "))
+            per_day_wage = int(input("Enter per day wage of your company: "))
+            result = Employee(name, minimum_working_hours, minimum_working_days, per_day_wage)
+            print("Monthly wage and details of the employee is", result.company_name, result.returned_value)
+        else:
+            sys.exit()
+
