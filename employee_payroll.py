@@ -42,7 +42,8 @@ if __name__ == "__main__":
     print("Welcome to employee payroll program")
     company_list = []
     while True:
-        user_input = int(input("Choice a number\n 0: Enter the details\n 1: To exit\n"))
+        user_input = int(input("Choice a number\n 0: Enter the details\n 1: To know monthly wage of a company\n "
+                               "others: exit: "))
         if user_input == 0:
             name = str(input("Enter name of the company: "))
             minimum_working_hours = int(input("Enter minimum working hours of your company: "))
@@ -51,6 +52,11 @@ if __name__ == "__main__":
             result = Employee(name, minimum_working_hours, minimum_working_days, per_day_wage)
             company_list.append(result.returned_value)
             print("Monthly wage and details of the employee is", company_list)
+        elif user_input == 1:
+            name = input("Enter name of the company you want to know: ")
+            for i in company_list:
+                if i[0] == name:
+                    print(f"monthly wage of {name} is : ", i[1])
+                    break
         else:
             sys.exit()
-
